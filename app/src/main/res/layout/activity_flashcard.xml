@@ -3,38 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/frontLayout"
+    <ViewFlipper
+        android:id="@+id/flipper"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <!-- Front TextView -->
-        <TextView
-            android:id="@+id/textViewFront"
+        <!-- Front Layout -->
+        <LinearLayout
+            android:id="@+id/frontLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:text="你好" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/backLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone">
+            <!-- Front TextView -->
+            <TextView
+                android:id="@+id/textViewFront"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:text="你好" />
+        </LinearLayout>
 
-        <!-- Back TextView -->
-        <TextView
-            android:id="@+id/textViewBack"
+        <!-- Back Layout -->
+        <LinearLayout
+            android:id="@+id/backLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:text="Hello" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Back TextView -->
+            <TextView
+                android:id="@+id/textViewBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:text="Hello" />
+        </LinearLayout>
+
+    </ViewFlipper>
+
 </FrameLayout>
