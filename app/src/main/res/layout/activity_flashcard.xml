@@ -1,59 +1,72 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardView"
-    android:layout_width="250dp"
-    android:layout_height="150dp"
-    android:layout_gravity="center"
-    android:layout_margin="16dp"
-    android:background="#69FFFFFF"
-    android:backgroundTint="#69FFFFFF"
-    app:cardBackgroundColor="#C7FFFFFF">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_cyan"
+    android:orientation="vertical">
 
-    <!-- Contenuto della flipcard -->
-    <ViewFlipper
-        android:id="@+id/flipper"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!-- Altri elementi del layout -->
 
-        <!-- Front Layout -->
-        <LinearLayout
-            android:id="@+id/frontLayout"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:background="#69FFFFFF"
+        android:backgroundTint="#69FFFFFF"
+        app:cardBackgroundColor="#C7FFFFFF">
+
+        <!-- Contenuto della flipcard -->
+        <ViewFlipper
+            android:id="@+id/flipper"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/rounded_background"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <!-- Front TextView -->
-            <TextView
-                android:id="@+id/textViewFront"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="你好"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
+            <!-- Front Layout -->
+            <LinearLayout
+                android:id="@+id/frontLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_background"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <!-- Back Layout -->
-        <LinearLayout
-            android:id="@+id/backLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/back_rounded_background"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
+                <!-- Front TextView -->
+                <TextView
+                    android:id="@+id/textViewFront"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="你好"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
+            </LinearLayout>
 
-            <!-- Back TextView -->
-            <TextView
-                android:id="@+id/textViewBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hello"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
+            <!-- Back Layout -->
+            <LinearLayout
+                android:id="@+id/backLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_rounded_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-    </ViewFlipper>
+                <!-- Back TextView -->
+                <TextView
+                    android:id="@+id/textViewBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
+            </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+        </ViewFlipper>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Altri elementi del layout -->
+
+</LinearLayout>
