@@ -20,6 +20,11 @@ To start contributing to the development of the Cantonese Flashcards App, follow
 
 We welcome contributions from the community to help improve the Cantonese Flashcards App. If you have any ideas, bug fixes, or new features to propose, please refer to our [Contribution Guidelines](CONTRIBUTING.md).
 
+## Showcase
+
+![Showcase](./showcase/initialshowcase.webm)
+
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
