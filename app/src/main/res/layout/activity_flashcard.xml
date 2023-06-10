@@ -1,31 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/flashcardLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
+        android:id="@+id/frontLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <!-- Front TextView -->
         <TextView
             android:id="@+id/textViewFront"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:textSize="18sp"
             android:textColor="@android:color/black"
-            android:text="Front Text" />
+            android:text="你好" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/backLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Back TextView -->
         <TextView
             android:id="@+id/textViewBack"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:textSize="18sp"
             android:textColor="@android:color/black"
-            android:text="Back Text"
-            android:rotationY="180" />
-
-    </androidx.cardview.widget.CardView>
-
-</RelativeLayout>
+            android:text="Hello" />
+    </LinearLayout>
+</FrameLayout>
