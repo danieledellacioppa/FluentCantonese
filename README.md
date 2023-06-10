@@ -22,7 +22,7 @@ We welcome contributions from the community to help improve the Cantonese Flashc
 
 ## Showcase
 
-![Showcase](./showcase/initialshowcase.webm)
+![Showcase](./showcase/initialshowcase.gif)
 
 
 ## License
