@@ -14,5 +14,5 @@
 .cxx
 local.properties
 
-audio/*.aup3
+*.aup3
 
