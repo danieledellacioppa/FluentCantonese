@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.poetic.FluentCantonese.R;
@@ -15,6 +17,10 @@ public class FlashcardActivity extends AppCompatActivity {
 
     private boolean isFront = true;
 
+    private TextView recordedText;
+
+    private Button recordButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +29,8 @@ public class FlashcardActivity extends AppCompatActivity {
         flipper = findViewById(R.id.flipper);
         LinearLayout frontLayout = findViewById(R.id.frontLayout);
         LinearLayout backLayout = findViewById(R.id.backLayout);
+        recordButton = findViewById(R.id.recordButton);
+        recordedText = findViewById(R.id.recordingView);
 
         frontLayout.setOnClickListener(new View.OnClickListener() {
             @Override

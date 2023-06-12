@@ -29,7 +29,7 @@
                 android:id="@+id/frontLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/rounded_background"
+                android:background="@drawable/back_rounded_background"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -38,9 +38,9 @@
                     android:id="@+id/textViewFront"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="你好"
+                    android:text="I am"
                     android:textColor="@android:color/black"
-                    android:textSize="24sp" />
+                    android:textSize="32sp" />
             </LinearLayout>
 
             <!-- Back Layout -->
@@ -48,7 +48,7 @@
                 android:id="@+id/backLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/back_rounded_background"
+                android:background="@drawable/rounded_background"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:visibility="gone">
@@ -58,14 +58,28 @@
                     android:id="@+id/textViewBack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hello"
+                    android:text="我係"
                     android:textColor="@android:color/black"
-                    android:textSize="24sp" />
+                    android:textSize="32sp" />
             </LinearLayout>
 
         </ViewFlipper>
 
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/recordingView"
+        android:layout_width="269dp"
+        android:layout_height="86dp"
+        android:layout_gravity="center"
+        android:text="" />
+
+    <Button
+        android:id="@+id/recordButton"
+        android:layout_width="221dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Record" />
 
     <!-- Altri elementi del layout -->
 
