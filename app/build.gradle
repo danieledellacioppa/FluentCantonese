@@ -37,6 +37,4 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    implementation 'edu.cmu.sphinx:sphinx4-core:5prealpha-SNAPSHOT'
-
 }

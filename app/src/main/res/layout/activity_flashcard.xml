@@ -67,19 +67,15 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/recordingView"
-        android:layout_width="269dp"
-        android:layout_height="86dp"
-        android:layout_gravity="center"
-        android:text="" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/recordButton"
-        android:layout_width="221dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Record" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="insert your answer here" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Altri elementi del layout -->
 
