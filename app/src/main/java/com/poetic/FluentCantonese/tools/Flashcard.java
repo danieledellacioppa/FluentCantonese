@@ -4,9 +4,12 @@ public class Flashcard {
     private String frontText;
     private String backText;
 
-    public Flashcard(String frontText, String backText) {
+    private String jutPing;
+
+    public Flashcard(String frontText, String backText, String jutPing) {
         this.frontText = frontText;
         this.backText = backText;
+        this.jutPing = jutPing;
     }
 
     public String getFrontText() {
@@ -23,5 +26,13 @@ public class Flashcard {
 
     public void setBackText(String backText) {
         this.backText = backText;
+    }
+
+    public String getJutPing() {
+        return jutPing;
+    }
+
+    public void setJutPing(String jutPing) {
+        this.jutPing = jutPing;
     }
 }
