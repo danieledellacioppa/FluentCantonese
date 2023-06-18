@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.poetic.FluentCantonese.R;
 import com.poetic.FluentCantonese.tools.Flashcard;
 
@@ -21,6 +24,10 @@ public class FlashcardActivity extends AppCompatActivity {
     private TextView textViewBack;
     private Button nextButton;
 
+    private TextInputEditText textInputEditText;
+    String userText = null;
+    String correctAnswer = null;
+
     private int currentIndex = 0;
     private List<Flashcard> flashcards;
     private boolean flipCardClicked = false;
@@ -29,6 +36,8 @@ public class FlashcardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
+
+        textInputEditText = findViewById(R.id.textInputEditText);
 
         textViewFront = findViewById(R.id.textViewFront);
         textViewBack = findViewById(R.id.textViewBack);
@@ -41,7 +50,18 @@ public class FlashcardActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!flipCardClicked) {
+                userText = textInputEditText.getText().toString();
+                correctAnswer = flashcards.get(currentIndex).getBackText();
+                if (!flipCardClicked && userText != null) {
+                    if (correctAnswer.contains(userText)) {
+                        Toast.makeText(FlashcardActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                        textInputEditText.setText("");
+
+                    } else {
+                        Toast.makeText(FlashcardActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+                        textInputEditText.setText("");
+
+                    }
                     flipCard();
                     flipCardClicked = true;
                 } else {
