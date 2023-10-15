@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#C74C0276"
+    android:background="#004C0276"
     android:padding="16dp">
 
     <TextView
@@ -13,7 +13,7 @@
         android:fontFamily="@font/alata"
         android:text="Correct!"
         android:textAlignment="center"
-        android:textColor="@android:color/white"
+        android:textColor="#43006F"
         android:textSize="60sp"
         android:textStyle="bold" />
 

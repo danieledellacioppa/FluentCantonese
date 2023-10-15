@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_cyan">
-
-    <!-- Altri elementi del layout -->
+    android:background="@drawable/flash_cards_activity"
+    tools:context=".activities.FlashcardActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -42,8 +41,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="I am"
+                    android:fontFamily="@font/alata"
                     android:textColor="@android:color/black"
-                    android:textSize="32sp" />
+                    android:textSize="60sp" />
             </LinearLayout>
 
             <!-- Back Layout -->
@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:text="我係"
                     android:textColor="@android:color/black"
-                    android:textSize="32sp" />
+                    android:textSize="60sp" />
             </LinearLayout>
 
         </ViewFlipper>
@@ -84,12 +84,22 @@
             android:id="@+id/textInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/alata"
+            android:background="@drawable/rounded_background2"
+            android:inputType="text"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
             android:hint=" " />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/nextButton"
+        android:background="#570874"
+        android:fontFamily="@font/alata"
+        android:textSize="20sp"
+        android:elevation="4dp"
+        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Check"

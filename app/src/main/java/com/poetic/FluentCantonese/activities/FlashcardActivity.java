@@ -6,6 +6,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.pm.PackageManager;
@@ -184,6 +185,8 @@ public class FlashcardActivity extends AppCompatActivity {
 
         final AlertDialog alertDialog = builder.create();
 
+        alertDialog.getWindow().getAttributes().windowAnimations = R.anim.dialog_animation; // Aggiungi l'animazione di dissolvenza
+
         alertDialog.show();
 
         // Imposta un timer per chiudere l'AlertDialog dopo un determinato periodo di tempo
@@ -193,6 +196,16 @@ public class FlashcardActivity extends AppCompatActivity {
                 alertDialog.dismiss();
             }
         }, 3000); // 3000 millisecondi (3 secondi) come esempio, puoi cambiare il tempo a tuo piacimento
+
+        // Aggiungi l'animazione per far apparire gradualmente l'immagine
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(customImageView, "alpha", 0f, 1f);
+        fadeIn.setDuration(200); // Durata dell'animazione in millisecondi
+        fadeIn.start();
+
+        // Aggiungi l'animazione per far muovere leggermente il dialog verso l'alto
+        ObjectAnimator translationY = ObjectAnimator.ofFloat(dialogView, "translationY", 100f, 0f);
+        translationY.setDuration(200); // Durata dell'animazione in millisecondi
+        translationY.start();
     }
 
 }
