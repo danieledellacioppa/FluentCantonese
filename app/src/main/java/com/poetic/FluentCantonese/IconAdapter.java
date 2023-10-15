@@ -1,6 +1,7 @@
 package com.poetic.FluentCantonese;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.poetic.FluentCantonese.activities.FlashcardActivity;
+
 import java.util.List;
 
 public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconViewHolder> {
@@ -32,6 +36,17 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconViewHolder
 
         // Imposta il nome e la descrizione qui
         holder.nameTextView.setText(iconItem.getName());
+
+        holder.iconImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //lancia FlashcardActivity
+                Intent intent = new Intent(context, FlashcardActivity.class);
+                intent.putExtra("lessonNumber", iconItem.getNumLesson());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -29,11 +29,19 @@ public class FlashcardActivity extends AppCompatActivity
     private int currentIndex = 0;
     private List<Flashcard> flashcards;
     private boolean flipCardClicked = false;
+
+    private FlashcardDeck flashcardDeck;
+
+    private int lessonNumber = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
+
+        //get intent extra from the previous activity
+        lessonNumber = getIntent().getIntExtra("lessonNumber", 0);
+
 
         textInputEditText = findViewById(R.id.textInputEditText);
 
@@ -64,11 +72,13 @@ public class FlashcardActivity extends AppCompatActivity
                         textInputEditText.setText("");
                     }
                     flipCard();
+                    nextButton.setText("Next");
                     flipCardClicked = true;
                 }
                 else
                 {
                     showNextFlashcard();
+                    nextButton.setText("Check");
                     flipCardClicked = false;
                 }
             }
@@ -122,26 +132,9 @@ public class FlashcardActivity extends AppCompatActivity
 
     private List<Flashcard> getFlashcards()
     {
-        // Esempio di creazione di un vettore temporaneo di flashcard
-        List<Flashcard> flashcards = new ArrayList<>();
-        flashcards.add(new Flashcard("Hello", "你好","nei5 hou2"));
-        flashcards.add(new Flashcard("Goodbye", "再見","zoi3 gin3"));
-        flashcards.add(new Flashcard("Sorry", "對唔住","deoi3 m4 zyu6"));
-        flashcards.add(new Flashcard("Please", "唔該","m4 goi1"));
-        flashcards.add(new Flashcard("I", "我","ngo5"));
-        flashcards.add(new Flashcard("You", "你","nei5"));
-        flashcards.add(new Flashcard("He", "佢","keoi5"));
-        flashcards.add(new Flashcard("She", "佢","keoi5"));
-        flashcards.add(new Flashcard("We", "我哋","ngo5 dei6"));
-        flashcards.add(new Flashcard("They", "佢哋","keoi5 dei6"));
-        flashcards.add(new Flashcard("This", "呢個","ni1 go3"));
-        flashcards.add(new Flashcard("That", "嗰個","go2 go3"));
-        flashcards.add(new Flashcard("Here", "呢度","ni1 dou6"));
+        flashcardDeck = new FlashcardDeck(lessonNumber);
 
-
-        // Aggiungi altre flashcard qui
-
-        return flashcards;
+        return flashcardDeck.getFlashcards();
     }
 }
 
