@@ -7,17 +7,32 @@
     android:background="@drawable/love_city"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/lesson_1"
-        android:src="@drawable/lesson_1"
+<!--    <ImageView-->
+<!--        android:id="@+id/lesson_1"-->
+<!--        android:src="@drawable/lesson_1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="102dp"-->
+<!--        android:text="Training"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="102dp"
-        android:text="Training"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="102dp"
+        android:layout_marginRight="102dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
