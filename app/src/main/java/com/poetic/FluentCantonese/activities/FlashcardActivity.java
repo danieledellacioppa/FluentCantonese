@@ -25,6 +25,12 @@ import com.poetic.FluentCantonese.tools.Flashcard;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 
 public class FlashcardActivity extends AppCompatActivity {
     private TextView textViewFront;
@@ -68,7 +74,7 @@ public class FlashcardActivity extends AppCompatActivity {
                 if (!flipCardClicked && userText != null) {
                     if (correctAnswer.equals(userText)) {
                         Toast.makeText(FlashcardActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
-//                        creaNotifiche();
+                        showCustomAlertDialog();
                         textInputEditText.setText("");
                     } else {
                         Toast.makeText(FlashcardActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
@@ -166,5 +172,28 @@ public class FlashcardActivity extends AppCompatActivity {
 
         return flashcardDeck.getFlashcards();
     }
+
+
+    public void showCustomAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog, null);
+        ImageView customImageView = dialogView.findViewById(R.id.customImageView);
+        customImageView.setVisibility(View.VISIBLE);
+
+        builder.setView(dialogView);
+
+        final AlertDialog alertDialog = builder.create();
+
+        alertDialog.show();
+
+        // Imposta un timer per chiudere l'AlertDialog dopo un determinato periodo di tempo
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                alertDialog.dismiss();
+            }
+        }, 3000); // 3000 millisecondi (3 secondi) come esempio, puoi cambiare il tempo a tuo piacimento
+    }
+
 }
 
