@@ -1,7 +1,15 @@
 package com.poetic.FluentCantonese.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +26,7 @@ import com.poetic.FluentCantonese.tools.Flashcard;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlashcardActivity extends AppCompatActivity
-{
+public class FlashcardActivity extends AppCompatActivity {
     private TextView textViewFront;
     private TextView textViewBack;
     private Button nextButton;
@@ -33,9 +40,9 @@ public class FlashcardActivity extends AppCompatActivity
     private FlashcardDeck flashcardDeck;
 
     private int lessonNumber = 0;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
 
@@ -55,29 +62,24 @@ public class FlashcardActivity extends AppCompatActivity
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 userText = textInputEditText.getText().toString();
                 correctAnswer = flashcards.get(currentIndex).getBackText();
-                if (!flipCardClicked && userText != null)
-                {
-                    if (correctAnswer.equals(userText))
-                    {
+                if (!flipCardClicked && userText != null) {
+                    if (correctAnswer.equals(userText)) {
                         Toast.makeText(FlashcardActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
                         textInputEditText.setText("");
-                    }
-                    else
-                    {
+                    } else {
                         Toast.makeText(FlashcardActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
                         textInputEditText.setText("");
                     }
                     flipCard();
+                    textInputEditText.setVisibility(View.INVISIBLE);
                     nextButton.setText("Next");
                     flipCardClicked = true;
-                }
-                else
-                {
+                } else {
                     showNextFlashcard();
+                    textInputEditText.setVisibility(View.VISIBLE);
                     nextButton.setText("Check");
                     flipCardClicked = false;
                 }
@@ -86,12 +88,36 @@ public class FlashcardActivity extends AppCompatActivity
 
         textViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 //display jutping
                 Toast.makeText(FlashcardActivity.this, flashcards.get(currentIndex).getJutPing(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("channel_id", "Channel Name", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel_id")
+                .setSmallIcon(R.drawable.correct)  // R.drawable.ic_notification è il nome dell'immagine PNG nella cartella res/drawable
+                .setContentTitle("Titolo della notifica")
+                .setContentText("Testo della notifica")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here we are requesting the permission
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
+
+            return;
+        }
+        notificationManager.notify(R.drawable.correct, builder.build());
+
+
     }
 
     private void showNextFlashcard()
