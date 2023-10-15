@@ -68,6 +68,7 @@ public class FlashcardActivity extends AppCompatActivity {
                 if (!flipCardClicked && userText != null) {
                     if (correctAnswer.equals(userText)) {
                         Toast.makeText(FlashcardActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+//                        creaNotifiche();
                         textInputEditText.setText("");
                     } else {
                         Toast.makeText(FlashcardActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
@@ -94,6 +95,11 @@ public class FlashcardActivity extends AppCompatActivity {
             }
         });
 
+
+
+    }
+
+    private void creaNotifiche() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("channel_id", "Channel Name", NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
@@ -102,8 +108,8 @@ public class FlashcardActivity extends AppCompatActivity {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel_id")
                 .setSmallIcon(R.drawable.correct)  // R.drawable.ic_notification è il nome dell'immagine PNG nella cartella res/drawable
-                .setContentTitle("Titolo della notifica")
-                .setContentText("Testo della notifica")
+                .setContentTitle("Corretto!")
+                .setContentText("Complimenti, hai indovinato!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
@@ -116,8 +122,6 @@ public class FlashcardActivity extends AppCompatActivity {
             return;
         }
         notificationManager.notify(R.drawable.correct, builder.build());
-
-
     }
 
     private void showNextFlashcard()
