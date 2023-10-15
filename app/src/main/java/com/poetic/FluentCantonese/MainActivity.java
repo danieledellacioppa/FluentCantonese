@@ -38,16 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
     private List<IconItem> createIconList() {
         List<IconItem> iconList = new ArrayList<>();
-        iconList.add(new IconItem(R.drawable.lesson_1, "Lesson 1"));
-        iconList.add(new IconItem(R.drawable.lesson_2, "Lesson 2"));
-//        iconList.add(new IconItem(R.drawable.lesson_3, "Lesson 3"));
-//        iconList.add(new IconItem(R.drawable.lesson_4, "Lesson 4"));
-//        iconList.add(new IconItem(R.drawable.lesson_5, "Lesson 5"));
-//        iconList.add(new IconItem(R.drawable.lesson_6, "Lesson 6"));
-//        iconList.add(new IconItem(R.drawable.lesson_7, "Lesson 7"));
-//        iconList.add(new IconItem(R.drawable.lesson_8, "Lesson 8"));
-//        iconList.add(new IconItem(R.drawable.lesson_9, "Lesson 9"));
-//        iconList.add(new IconItem(R.drawable.lesson_10, "Lesson 10"));
+        iconList.add(new IconItem(R.drawable.lesson_1, 1));
+        iconList.add(new IconItem(R.drawable.lesson_2, 2));
+//        iconList.add(new IconItem(R.drawable.lesson_3, 3));
         return iconList;
     }
 
